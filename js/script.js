@@ -6,7 +6,7 @@
 
 var cognomi = ['Bianchi','Rossi','Duzioni','Balsano','Verdi'];
 var cognomeUtente = prompt('Inserisci il cognome');
-var patt1 = /[1-9]/g;
+var patt1 = /[0-9]/g;
   if ( cognomeUtente.match(patt1) )  {
     document.getElementById('let').innerHTML = "Il cognome non puo contenere una lettera"
   } else{
