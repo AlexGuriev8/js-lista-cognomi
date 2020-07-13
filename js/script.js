@@ -6,19 +6,23 @@
 
 var cognomi = ['Bianchi','Rossi','Duzioni','Balsano','Verdi'];
 var cognomeUtente = prompt('Inserisci il cognome');
+var patt1 = /[1-9]/g;
+  if ( cognomeUtente.match(patt1) )  {
+    document.getElementById('let').innerHTML = "Il cognome non puo contenere una lettera"
+  } else{
+    cognomeUtente = cognomeUtente.charAt(0).toUpperCase() + cognomeUtente.slice(1).toLowerCase();
+    // console.log(cognomeUtente);
+     cognomi.push(cognomeUtente);
+     cognomi.sort();
 
-cognomeUtente = cognomeUtente.charAt(0).toUpperCase() + cognomeUtente.slice(1).toLowerCase();
-// console.log(cognomeUtente);
- cognomi.push(cognomeUtente);
- cognomi.sort();
+    console.log(cognomi);
 
-console.log(cognomi);
-
-var posizione = cognomi.indexOf(cognomeUtente);
-console.log('La posizione "umana" ',posizione + 1);
+    var posizione = cognomi.indexOf(cognomeUtente);
+    console.log('La posizione "umana" ',posizione + 1);
 
 
-for(var i = 0; i < cognomi.length;i++) {
-  console.log(cognomi[i]);
-  document.getElementById('print').innerHTML +=  '<li>' + cognomi[i] + '</li>';
-}
+    for(var i = 0; i < cognomi.length;i++) {
+      console.log(cognomi[i]);
+      document.getElementById('print').innerHTML +=  '<li>' + cognomi[i] + '</li>';
+    }
+  }
