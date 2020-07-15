@@ -6,9 +6,10 @@
 
 var cognomi = ['Bianchi','Rossi','Duzioni','Balsano','Verdi'];
 var cognomeUtente = prompt('Inserisci il cognome');
-var patt1 = /[0-9]/g;
-  if ( cognomeUtente.match(patt1) )  {
-    document.getElementById('let').innerHTML = "Il cognome non puo contenere una lettera"
+var numeri = RegExp('[0-9]' );
+var carSpec = RegExp('[!@#$%^&*()+=,./{}|:<>?]');
+  if ((numeri.test(cognomeUtente) == true) || (carSpec.test(cognomeUtente) == true) || (cognomeUtente == ''))  {
+    document.getElementById('let').innerHTML = "Inserisci di nuovo il cognome"
   } else{
     cognomeUtente = cognomeUtente.charAt(0).toUpperCase() + cognomeUtente.slice(1).toLowerCase();
     // console.log(cognomeUtente);
@@ -20,9 +21,17 @@ var patt1 = /[0-9]/g;
     var posizione = cognomi.indexOf(cognomeUtente);
     console.log('La posizione "umana" ',posizione + 1);
 
+   dex=document.getElementById('print');
+   console.log('Una frase',dex);
 
     for(var i = 0; i < cognomi.length;i++) {
-      console.log(cognomi[i]);
-      document.getElementById('print').innerHTML +=  '<li>' + cognomi[i] + '</li>';
+      dex.innerHTML +=  '<li>' + cognomi[i] + '</li>';
     }
   }
+
+
+
+  //controllo
+  // do {
+  //   var cognome = prompt('Inserisci il cognome')
+  // }while (cognome.length<=0);
